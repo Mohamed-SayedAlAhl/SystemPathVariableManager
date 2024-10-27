@@ -5,14 +5,14 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.IO;
 
-namespace EnvironmentPathManagerBusinessLayer
+namespace SystemPathVariableManagerBusinessLayer
 {
-    public class EnvironmentPathManager
+    public class SystemPathVariableManager
     {
         private const string PathVariableName = "PATH";
         private string CurrentPath { get; set; }
 
-        public EnvironmentPathManager()
+        public SystemPathVariableManager()
         {
            
             this.CurrentPath = Environment.GetEnvironmentVariable(PathVariableName, EnvironmentVariableTarget.Machine);

@@ -4,10 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.33801.447
 MinimumVisualStudioVersion = 10.0.40219.1
 
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingEnvManager", "..\TestingEnvManager\TestingEnvManager.csproj", "{A40ABF32-DECB-4CB0-9B26-DAC1ECCD96C0}"
-EndProject
 
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentPathManagerBusinessLayer", "EnvironmentPathManagerBusinessLayer.csproj", "{C2DC0362-A7FB-498A-9028-044D900F4608}"
+
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemPathVariableManagerBusinessLayer", "SystemPathVariableManagerBusinessLayer.csproj", "{C2DC0362-A7FB-498A-9028-044D900F4608}"
 EndProject
 
 Global

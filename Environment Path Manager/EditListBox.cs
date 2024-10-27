@@ -383,6 +383,8 @@ namespace Manager
                 editingIndex = this.Items.Count - 1; // Set the editing index to the new item
                 Rectangle itemRect = this.GetItemRectangle(editingIndex);
 
+               
+
                 // Set TextBox properties
                 textBox.Bounds = itemRect;
                 textBox.Visible = true;

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using EnvironmentPathManagerBusinessLayer;
+using SystemPathVariableManagerBusinessLayer;
 
 namespace Manager
 {
@@ -17,7 +17,7 @@ namespace Manager
 
     public partial class Form1 : Form
     {
-        public EnvironmentPathManager env = new EnvironmentPathManager();
+        public SystemPathVariableManager env = new SystemPathVariableManager();
 
         private Button btnNew;
         private Button btnDelete;

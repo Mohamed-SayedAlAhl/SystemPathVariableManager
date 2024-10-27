@@ -213,7 +213,7 @@ namespace Manager
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "Super Environment Path Manager";
+            this.Text = "System Path Variable Manager ";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

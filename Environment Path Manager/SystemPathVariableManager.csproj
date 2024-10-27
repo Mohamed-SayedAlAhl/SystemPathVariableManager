@@ -8,7 +8,7 @@
     <ProjectGuid>{05F43711-2647-48F9-90C7-B7F840DA4D56}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Manager</RootNamespace>
-    <AssemblyName>Super Environment Path Manager</AssemblyName>
+    <AssemblyName>System Path Variable Manager</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -232,9 +232,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EnvironmentPathManagerBusinessLayer\EnvironmentPathManagerBusinessLayer.csproj">
+    <ProjectReference Include="..\EnvironmentPathManagerBusinessLayer\SystemPathVariableManagerBusinessLayer.csproj">
       <Project>{c2dc0362-a7fb-498a-9028-044d900f4608}</Project>
-      <Name>EnvironmentPathManagerBusinessLayer</Name>
+      <Name>SystemPathVariableManagerBusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
