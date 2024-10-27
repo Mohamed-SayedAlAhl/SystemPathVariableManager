@@ -1,12 +1,12 @@
-# Environment Path Manager
+# System Path Variable Manager
 
 ## Overview
 
-This application, developed using C# and .NET Framework 4.8, is designed to enhance Windows environment variable management, particularly focusing on Path variables.
+This application, developed using C# and .NET Framework 4.8, is designed to enhance Windows System Path variable management.
 
 ## Features
 
-- **Enhanced Environment Variable Management:**
+- **Enhanced  System Path Environment Variable Management:**
   
   - **Dynamic Path Handling:** Efficiently manage the Path environment variable.
   - **User-Friendly Interface:** Modern Windows Forms interface for easy use with enhanced capabilities.
@@ -38,20 +38,20 @@ This application, developed using C# and .NET Framework 4.8, is designed to enha
 2. Run the executable to start the application.
 
 3. First, It will prompt you to backup your path variable and it will pop-up a dialog like this, Just choose where you want to save the backup
-   ![030](https://github.com/user-attachments/assets/fe95e0ca-6c13-49d9-b51e-242f8119d66a)
+   ![030](https://github.com/user-attachments/assets/0cf37b63-c033-4ef6-a37f-6a2fbcc6c58c)
 
 4. Then , it will open the app which will look like this 
-   ![027](https://github.com/user-attachments/assets/d116684f-a210-4799-9ade-64994cd7d8ef)
+   ![027](https://github.com/user-attachments/assets/76fd3d35-c622-4345-b225-a18d6c85b743)
 
-5. If you didn't follow the backup prompt when you started the app , I recommend that you back up your original path when the app opens. 
+5. If you didn't follow the backup prompt when you started the app , I recommend that you back up your path when the app opens using "Backup Paths" button. 
 
-6. when backing up your data, you can easily import them whenever you like using import button and it will pop-up  a screen like this asking for path to the backup txt file
+6. when backing up your data, you can easily restore them whenever you like using restore button and it will pop-up  a screen like this asking for path to the backup txt file
 
-![028](https://github.com/user-attachments/assets/5fadb5f2-d1c6-4ed5-a991-3413e0ebcbfb)
+![028](https://github.com/user-attachments/assets/51595e01-5206-4788-8c3c-739d730f0ef6)
 
-7. when Editing and you want to take a rest then continue you can save your current snapshot under editing for later editing using export viewed snapshot button and it will ask you for location where you want to save this snapshot. By Default it will make it easy for you and it will enter name of the export with the date of the day to make it easy for accessing later on
+7. when Editing and you want to take a rest then continue you can save your current snapshot under editing for later editing using "export snapshot"" button and it will ask you for location where you want to save this snapshot. By Default it will make it easy for you and it will enter name of the export with timing to make it easy for accessing later on
 
-![029](https://github.com/user-attachments/assets/fbbb1749-928c-4377-945b-06f4d4bbbd60)
+![029](https://github.com/user-attachments/assets/fa2ad949-c17d-4f1d-8106-f814f8b9ebbf)
 
 ## Usage
 
