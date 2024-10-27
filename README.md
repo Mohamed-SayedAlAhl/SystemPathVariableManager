@@ -38,20 +38,20 @@ This application, developed using C# and .NET Framework 4.8, is designed to enha
 2. Run the executable to start the application.
 
 3. First, It will prompt you to backup your path variable and it will pop-up a dialog like this, Just choose where you want to save the backup
-   ![030](https://github.com/user-attachments/assets/0cf37b63-c033-4ef6-a37f-6a2fbcc6c58c)
+   ![030](https://github.com/user-attachments/assets/d897ca95-0bcf-40a4-9a55-652e3625a928)
 
 4. Then , it will open the app which will look like this 
-   ![027](https://github.com/user-attachments/assets/76fd3d35-c622-4345-b225-a18d6c85b743)
+   ![027](https://github.com/user-attachments/assets/d05f11a5-c536-4e95-bbce-7eb0d17b2a74)
 
 5. If you didn't follow the backup prompt when you started the app , I recommend that you back up your path when the app opens using "Backup Paths" button. 
 
 6. when backing up your data, you can easily restore them whenever you like using restore button and it will pop-up  a screen like this asking for path to the backup txt file
 
-![028](https://github.com/user-attachments/assets/51595e01-5206-4788-8c3c-739d730f0ef6)
+![028](https://github.com/user-attachments/assets/07e21e2f-f78c-477e-8280-ade85b6b607f)
 
 7. when Editing and you want to take a rest then continue you can save your current snapshot under editing for later editing using "export snapshot"" button and it will ask you for location where you want to save this snapshot. By Default it will make it easy for you and it will enter name of the export with timing to make it easy for accessing later on
 
-![029](https://github.com/user-attachments/assets/fa2ad949-c17d-4f1d-8106-f814f8b9ebbf)
+![029](https://github.com/user-attachments/assets/bc0714cc-7830-475d-8b4d-ed9763bb3449)
 
 ## Usage
 
