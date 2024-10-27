@@ -33,7 +33,7 @@ This application, developed using C# and .NET Framework 4.8, is designed to enha
 
 ## Installation
 
-1. Download the latest release from the [Releases](https://github.com/Mohamed-SayedAlAhl/EnvironmentPathManager/releases) page.
+1. Download the latest release from the [Releases](https://github.com/Mohamed-SayedAlAhl/SystemPathVariableManager/releases) page.
 
 2. Run the executable to start the application.
 
@@ -60,7 +60,7 @@ This application, developed using C# and .NET Framework 4.8, is designed to enha
 
 ## License
 
-### Please refer to the [LICENSE](https://github.com/Mohamed-SayedAlAhl/EnvironmentPathManager/blob/main/LICENSE) file for detailed licensing terms.
+### Please refer to the [LICENSE](https://github.com/Mohamed-SayedAlAhl/SystemPathVariableManager/blob/main/LICENSE) file for detailed licensing terms.
 
 ## Contact
 
