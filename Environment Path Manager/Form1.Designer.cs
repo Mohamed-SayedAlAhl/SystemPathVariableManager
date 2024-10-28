@@ -41,13 +41,13 @@ namespace Manager
             this.btnSave = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listBox1 = new Manager.EditListBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnSnapshot = new System.Windows.Forms.Button();
             this.btnRestore = new System.Windows.Forms.Button();
+            this.listBox1 = new Manager.EditListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,23 +130,6 @@ namespace Manager
             this.panel1.Size = new System.Drawing.Size(485, 396);
             this.panel1.TabIndex = 10;
             // 
-            // listBox1
-            // 
-            this.listBox1.AllowDelete = true;
-            this.listBox1.CommitOnEnter = true;
-            this.listBox1.CommitOnLeave = true;
-            this.listBox1.ConfirmDelete = true;
-            this.listBox1.ConfirmDeleteText = "Are you sure you want to delete the selected items?";
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.IntegralHeight = false;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(485, 396);
-            this.listBox1.TabIndex = 0;
-            // 
             // btnBrowse
             // 
             this.btnBrowse.Location = new System.Drawing.Point(735, 121);
@@ -190,6 +173,23 @@ namespace Manager
             this.btnRestore.Text = "Restore Backup";
             this.btnRestore.UseVisualStyleBackColor = true;
             this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.AllowDelete = true;
+            this.listBox1.CommitOnEnter = true;
+            this.listBox1.CommitOnLeave = true;
+            this.listBox1.ConfirmDelete = true;
+            this.listBox1.ConfirmDeleteText = "Are you sure you want to delete the selected items?";
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
+            this.listBox1.IntegralHeight = false;
+            this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(485, 396);
+            this.listBox1.TabIndex = 0;
             // 
             // Form1
             // 

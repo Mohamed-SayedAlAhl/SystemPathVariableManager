@@ -34,7 +34,9 @@ namespace Manager
 
             AskUserToBackUp();
             listBox1.PopulateListFromString(env.GetCurrentPath());
+            
             listBox1.SelectionMode = SelectionMode.MultiExtended;
+            
 
             ToolTip toolTip = new ToolTip();
 
@@ -341,6 +343,8 @@ namespace Manager
 
             GetDataForImport_Restore(true);
         }
+
+       
     }
 
    

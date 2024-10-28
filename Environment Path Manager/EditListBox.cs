@@ -41,7 +41,7 @@ namespace Manager
 
         private TextBox textBox;
         private int editingIndex = -1;
-        
+
 
         #endregion
 
@@ -224,28 +224,28 @@ namespace Manager
 
         protected override void WndProc(ref Message m)
         {
-            
+
 
             base.WndProc(ref m);
 
             // When the user starts scrolling, commit the edit
 
-            if ((m.Msg == WM_VSCROLL || m.Msg == WM_MOUSEWHEEL)&& this.SelectedItems.Count == 1)
+            if ((m.Msg == WM_VSCROLL || m.Msg == WM_MOUSEWHEEL) && this.SelectedItems.Count == 1)
             {
-                
-                    if (this.CommitOnLeave)
-                        this.CommitTextBox();
-                    else
-                        this.RollBackTextBox();
 
-                
-              
+                if (this.CommitOnLeave)
+                    this.CommitTextBox();
+                else
+                    this.RollBackTextBox();
+
+
+
             }
             else
             {
                 return;
             }
-           
+
         }
 
         #endregion
@@ -280,14 +280,14 @@ namespace Manager
         /// </summary>
         /// 
 
-     
+
 
         public void DeleteSelectedItems()
         {
 
             //stop editing to make scrolling not mistakely change things
             editingIndex = -1;
-           
+
 
             // Display confirmation MessageBox if required
             bool canDelete = true;
@@ -298,7 +298,7 @@ namespace Manager
 
             if (canDelete && this.SelectedItems.Count > 0)
             {
-                
+
 
                 while (this.SelectedItems.Count > 0)
                 {
@@ -309,41 +309,42 @@ namespace Manager
             }
 
             this.Height -= 20; // Adjusts height
-            
+
 
         }
 
 
-        private void ChangePositions(List<string> itemsToMove, int direction, List<int> originalIndices, ref List<int>  NewIndices)
+        private void ChangePositions(List<string> itemsToMove, int direction, List<int> originalIndices, ref List<int> NewIndices)
         {
             int newPosition;
             bool directionIsDown = direction == 1 ? true : false;
 
-           
+
+            for (int i = directionIsDown ? itemsToMove.Count - 1 : 0; directionIsDown ? (i >= 0) : (i < itemsToMove.Count); i += (directionIsDown ? -1 : 1))
+            {
+
+                newPosition = originalIndices[i] + direction;
+                if (newPosition >= this.Items.Count || newPosition < 0 || this.SelectedIndices.Contains(newPosition))
+                {
+                    NewIndices.Add(originalIndices[i]);
+                    continue;
+                }
+                    
+
+                this.Items.RemoveAt(originalIndices[i]);
+                this.Items.Insert(newPosition, itemsToMove[i]);
+                NewIndices.Add(newPosition);
+            }
 
 
 
-
-           for (int i = directionIsDown? itemsToMove.Count - 1:0; directionIsDown ? (i >= 0): (i < itemsToMove.Count); i += (directionIsDown ? -1 : 1))
-           {
-
-               newPosition = originalIndices[i] + direction;
-               if (newPosition >= this.Items.Count || newPosition < 0 || this.SelectedIndices.Contains(newPosition))
-                   continue;
-               this.Items.RemoveAt(originalIndices[i]);
-               this.Items.Insert(newPosition, itemsToMove[i]);
-               NewIndices.Add(newPosition);
-           }
-
-
-         
 
         }
         public void MoveItem(int direction)
         {
             //stop editing to make scrolling not mistakely change things
             editingIndex = -1;
-           
+
 
             // Check if there are any selected items
             if (this.SelectedItems.Count == 0)
@@ -356,14 +357,14 @@ namespace Manager
             List<int> NewIndices = new List<int>();
 
             // Insert the items back at their new positions
-            this.ChangePositions(itemsToMove, direction, originalIndices,ref NewIndices);
+            this.ChangePositions(itemsToMove, direction, originalIndices, ref NewIndices);
 
             this.ClearSelected();
 
             //Reselect the moved items
             foreach (int index in NewIndices)
             {
-                
+
                 this.SetSelected(index, true); // Reselect moved items
             }
 
@@ -371,21 +372,21 @@ namespace Manager
             this.Invalidate();
             this.Update();
         }
-        public void AddNewItem(string newItemText,bool editMode=false)
+        public void AddNewItem(string newItemText, bool editMode = false)
         {
             this.ClearSelected();
             this.Items.Add(newItemText); // Add the new item
-           
+
             this.TopIndex = this.Items.Count - 1;
-            
+
 
             // Enter edit mode for the new item
-            if(editMode)
+            if (editMode)
             {
                 editingIndex = this.Items.Count - 1; // Set the editing index to the new item
                 Rectangle itemRect = this.GetItemRectangle(editingIndex);
 
-               
+
 
                 // Set TextBox properties
                 textBox.Bounds = itemRect;
@@ -395,12 +396,12 @@ namespace Manager
                 textBox.SelectionLength = textBox.TextLength; // Select the whole text
                 textBox.Focus(); // Focus on the TextBox
 
-                
+
                 this.SelectedIndex = this.Items.Count - 1; // Select the newly added item 
             }
 
 
-            
+
 
             this.Refresh();
 
