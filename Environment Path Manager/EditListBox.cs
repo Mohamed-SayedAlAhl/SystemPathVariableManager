@@ -41,6 +41,7 @@ namespace Manager
 
         private TextBox textBox;
         private int editingIndex = -1;
+        
 
         #endregion
 
@@ -284,6 +285,9 @@ namespace Manager
         public void DeleteSelectedItems()
         {
 
+            //stop editing to make scrolling not mistakely change things
+            editingIndex = -1;
+           
 
             // Display confirmation MessageBox if required
             bool canDelete = true;
@@ -314,8 +318,11 @@ namespace Manager
         {
             int newPosition;
             bool directionIsDown = direction == 1 ? true : false;
+
            
-         
+
+
+
 
            for (int i = directionIsDown? itemsToMove.Count - 1:0; directionIsDown ? (i >= 0): (i < itemsToMove.Count); i += (directionIsDown ? -1 : 1))
            {
@@ -327,12 +334,16 @@ namespace Manager
                this.Items.Insert(newPosition, itemsToMove[i]);
                NewIndices.Add(newPosition);
            }
+
+
          
 
-           
         }
         public void MoveItem(int direction)
         {
+            //stop editing to make scrolling not mistakely change things
+            editingIndex = -1;
+           
 
             // Check if there are any selected items
             if (this.SelectedItems.Count == 0)
@@ -347,6 +358,7 @@ namespace Manager
             // Insert the items back at their new positions
             this.ChangePositions(itemsToMove, direction, originalIndices,ref NewIndices);
 
+            this.ClearSelected();
 
             //Reselect the moved items
             foreach (int index in NewIndices)
@@ -355,7 +367,9 @@ namespace Manager
                 this.SetSelected(index, true); // Reselect moved items
             }
 
-
+            // Force a repaint to refresh UI and notify WndProc of changes
+            this.Invalidate();
+            this.Update();
         }
         public void AddNewItem(string newItemText,bool editMode=false)
         {
