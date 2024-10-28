@@ -310,69 +310,52 @@ namespace Manager
         }
 
 
-        private void ChangePositions(List<object> itemsToMove, int direction, List<int> originalIndices)
+        private void ChangePositions(List<string> itemsToMove, int direction, List<int> originalIndices, ref List<int>  NewIndices)
         {
             int newPosition;
+            bool directionIsDown = direction == 1 ? true : false;
+           
+         
 
-            if (direction == 1)
-            {
-                for (int i = itemsToMove.Count - 1; i >= 0; i--)
-                {
+           for (int i = directionIsDown? itemsToMove.Count - 1:0; directionIsDown ? (i >= 0): (i < itemsToMove.Count); i += (directionIsDown ? -1 : 1))
+           {
 
-                    newPosition = originalIndices[i] + 1;
-                    if (newPosition >= this.Items.Count || newPosition < 0 || this.SelectedIndices.Contains(newPosition))
-                        continue;
-                    this.Items.Remove(itemsToMove[i]);
-                    this.Items.Insert(newPosition, itemsToMove[i]);
-                }
-            }
-
-            else
-            {
-                for (int i = 0; i < itemsToMove.Count; i++)
-                {
-
-                    newPosition = originalIndices[i] - 1;
-                    if (newPosition >= this.Items.Count || newPosition < 0 || this.SelectedIndices.Contains(newPosition))
-                        continue;
-                    this.Items.Remove(itemsToMove[i]);
-                    this.Items.Insert(newPosition, itemsToMove[i]);
-                }
-            }
+               newPosition = originalIndices[i] + direction;
+               if (newPosition >= this.Items.Count || newPosition < 0 || this.SelectedIndices.Contains(newPosition))
+                   continue;
+               this.Items.RemoveAt(originalIndices[i]);
+               this.Items.Insert(newPosition, itemsToMove[i]);
+               NewIndices.Add(newPosition);
+           }
+         
 
            
         }
         public void MoveItem(int direction)
         {
 
-
-
             // Check if there are any selected items
             if (this.SelectedItems.Count == 0)
                 return;
 
             // Store selected items and their original indices
-            var selectedItems = this.SelectedItems.Cast<object>().ToList();
-            var originalIndices = this.SelectedIndices.Cast<int>().ToList();
+            List<string> itemsToMove = this.SelectedItems.Cast<string>().ToList();
+            List<int> originalIndices = this.SelectedIndices.Cast<int>().ToList();
 
-            
-           
-           
-              List<object> itemsToMove = new List<object>(selectedItems);
+            List<int> NewIndices = new List<int>();
 
             // Insert the items back at their new positions
-            this.ChangePositions(itemsToMove, direction, originalIndices);
-            
-            
-                // Reselect the moved items
-                foreach (var item in itemsToMove)
-                {
-                    int newIndex = this.Items.IndexOf(item);
-                    this.SetSelected(newIndex, true); // Reselect moved items
-                }
-           
-           
-           
+            this.ChangePositions(itemsToMove, direction, originalIndices,ref NewIndices);
+
+
+            //Reselect the moved items
+            foreach (int index in NewIndices)
+            {
+                
+                this.SetSelected(index, true); // Reselect moved items
+            }
+
+
         }
         public void AddNewItem(string newItemText,bool editMode=false)
         {
