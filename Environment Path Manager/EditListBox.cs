@@ -309,6 +309,39 @@ namespace Manager
 
         }
 
+
+        private void ChangePositions(List<object> itemsToMove, int direction, List<int> originalIndices)
+        {
+            int newPosition;
+
+            if (direction == 1)
+            {
+                for (int i = itemsToMove.Count - 1; i >= 0; i--)
+                {
+
+                    newPosition = originalIndices[i] + 1;
+                    if (newPosition >= this.Items.Count || newPosition < 0 || this.SelectedIndices.Contains(newPosition))
+                        continue;
+                    this.Items.Remove(itemsToMove[i]);
+                    this.Items.Insert(newPosition, itemsToMove[i]);
+                }
+            }
+
+            else
+            {
+                for (int i = 0; i < itemsToMove.Count; i++)
+                {
+
+                    newPosition = originalIndices[i] - 1;
+                    if (newPosition >= this.Items.Count || newPosition < 0 || this.SelectedIndices.Contains(newPosition))
+                        continue;
+                    this.Items.Remove(itemsToMove[i]);
+                    this.Items.Insert(newPosition, itemsToMove[i]);
+                }
+            }
+
+           
+        }
         public void MoveItem(int direction)
         {
 
@@ -322,43 +355,15 @@ namespace Manager
             var selectedItems = this.SelectedItems.Cast<object>().ToList();
             var originalIndices = this.SelectedIndices.Cast<int>().ToList();
 
-            // Calculate the new positions for selected items
-            int firstSelectedIndex = originalIndices.First();
-            int lastSelectedIndex = originalIndices.Last();
-
-            // Check if the movement is valid based on direction
-            if (direction == 1) // Moving down
-            {
-                if (lastSelectedIndex + 1 >= this.Items.Count)
-                    return; // Can't move down if it exceeds the bounds
-            }
-            else // Moving up
-            {
-                if (firstSelectedIndex <= 0)
-                    return; // Can't move up if the first selected item is at the top
-            }
-
+            
            
-                // Create a list of items to be moved down/up
-                List<object> itemsToMove = new List<object>(selectedItems);
+           
+              List<object> itemsToMove = new List<object>(selectedItems);
 
-                
-
-                // Remove the selected items from their current positions
-                foreach (var item in itemsToMove)
-                {
-                    this.Items.Remove(item);
-                }
-
-                // New position for the first selected item
-                int newPosition = direction == 1 ? firstSelectedIndex + 1 : firstSelectedIndex - 1;
-
-                // Insert the items back at their new positions
-                for (int i = 0; i < itemsToMove.Count; i++)
-                {
-                    this.Items.Insert(newPosition + i, itemsToMove[i]);
-                }
-
+            // Insert the items back at their new positions
+            this.ChangePositions(itemsToMove, direction, originalIndices);
+            
+            
                 // Reselect the moved items
                 foreach (var item in itemsToMove)
                 {
